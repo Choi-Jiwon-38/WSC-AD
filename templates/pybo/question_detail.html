@@ -99,6 +99,12 @@
                             <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
                         </li>
                         {% endif %}
+                        <div class="ml-2">
+                            <select class="form-control form-control-sm  so">
+                                <option value="recent" {% if so == 'recent' %}selected{% endif %}>최신순</option>
+                                <option value="recommend" {% if so == 'recommend' %}selected{% endif %}>추천순</option>
+                            </select>
+                        </div>
                     </div>
                     {% endif %}
                     <div>
