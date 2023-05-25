@@ -53,7 +53,7 @@ def detail(request, question_id):
     comment_list = question.comment_set.all()
 
     # 정렬
-    if so == 'popular':
+    if so == 'recommend':
         comment_list = comment_list.annotate(num_voter=Count('voter')).order_by('-num_voter', '-create_date')
     else:   # 'recent'
         comment_list = comment_list.order_by('-create_date')
