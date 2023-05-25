@@ -209,6 +209,10 @@
         <input type="submit" value="답변등록" class="btn btn-primary">
     </form>
 </div>
+<form id="searchForm" method="get" action="{% url 'pybo:detail' question.id %}">
+    <input type="hidden" id="page" name="page" value="{{ page }}">
+    <input type="hidden" id="so" name="so" value="{{ so }}">
+</form>
 {% endblock %}
 {% block script %}
 <script type='text/javascript'>
@@ -218,10 +222,17 @@ $(document).ready(function(){
             location.href = $(this).data('uri');
         }
     });
+
     $(".recommend").on('click', function() {
         if(confirm("정말로 추천하시겠습니까?")) {
             location.href = $(this).data('uri');
         }
+    });
+
+    $(".so").on('change', function() {
+        $("#so").val($(this).val());
+        $("#page").val(1);
+        $("#searchForm").submit();
     });
 });
 </script>
